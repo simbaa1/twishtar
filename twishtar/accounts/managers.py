@@ -1,4 +1,4 @@
-from django.contrib.auth.base_use import BaseUserManager
+from django.contrib.auth.models import BaseUserManager
 from django.utils.translation import ugettext_lazy as _
 
 class UserManager(BaseUserManager):
@@ -10,9 +10,9 @@ class UserManager(BaseUserManager):
         """ Create and save a user with a given email and password
          """
         if not email:
-            raise ValueError(_('Email is required'))
+            raise ValueError('Email is required')
         if not username:
-            raise ValueError(_('Username is required.'))
+            raise ValueError('Username is required.')
 
         email = self.normalize_email(email)
         user = self.model(username=username, email=email)
@@ -20,12 +20,12 @@ class UserManager(BaseUserManager):
         user.save()
         return user
 
-        def create_superuser(self, username, email, password, **extra_fields):
-            if not password:
-                raise ValueError(_('A password is required'))
-            user=self.create_user(username, email, password, **extra_fields)
-            user.is_superuser = True
-            user.is_staff = True
-            user.save()
+    def create_superuser(self, username, email, password=None, **extra_fields):
+        if not password:
+            raise ValueError(_('A password is required'))
+        user=self.create_user(username, email, password, **extra_fields)
+        user.is_superuser = True
+        user.is_staff = True
+        user.save()
 
-            return user
+        return user
