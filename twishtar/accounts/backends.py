@@ -1,4 +1,5 @@
-from django.contrib.auth.models import User
+from django.conf import settings
+
 
 class EmailAuthBackend(object):
 
@@ -7,17 +8,17 @@ class EmailAuthBackend(object):
     """
     def authenticate(self, request, username=None, password=None):
         try:
-            user = User.objects.get(email=username)
+            user = settings.AUTH_USER_MODEL.objects.get(email=username)
             if user.check_password(password):
                 return User
             return None
         
-        except User.DoesNotExist:
+        except settings.AUTH_USER_MODEL.DoesNotExist:
             return None
 
     
     def get_user(self, user_id):
         try:
-            return User.objects.get(pk=user_id)
-        except User.DoesNotExist:
+            return settings.AUTH_USER_MODEL.objects.get(pk=user_id)
+        except settings.AUTH_USER_MODEL.DoesNotExist:
             return None
