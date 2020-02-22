@@ -59,7 +59,7 @@ ROOT_URLCONF = 'twishtar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'template')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -107,6 +107,15 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+# Authentication Backends
+
+AUTHENTICATION_BACKENDS = [
+    
+        'django.contrib.auth.backends.ModelBackend',
+        'accounts.backends.EmailAuthBackend',
+ ]
 
 
 # Internationalization
