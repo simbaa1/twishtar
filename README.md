@@ -1,2 +1,2 @@
-## Twishtar(twitter django  clone)
+## Twishtar
 
