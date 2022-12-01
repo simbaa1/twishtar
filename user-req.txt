@@ -1,0 +1,9 @@
+1. User can compose a wish
+2. user can edit a wish once only over a 20 minute window
+3. user can delete a wish
+4. user can follow other users
+5. user can like other wishes
+6. user can share other users wishes on their profile
+7. blocking
+8. tagging
+
