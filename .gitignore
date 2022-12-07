@@ -50,3 +50,7 @@ wheels/
 *.egg 
 *.manifest 
 *.spec 
+
+
+.my_pgpass
+.pg_service.conf
