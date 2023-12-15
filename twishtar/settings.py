@@ -81,11 +81,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'OPTIONS': {
             'service': 'my_service',
-            'passfile': '.my_pgpass'
+            'passfile': '.mypgpass'
         },
     }
 }
 
+print(DATABASES)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
