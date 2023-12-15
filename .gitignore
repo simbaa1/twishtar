@@ -52,5 +52,5 @@ wheels/
 *.spec 
 
 
-.my_pgpass
+.mypgpass
 .pg_service.conf
